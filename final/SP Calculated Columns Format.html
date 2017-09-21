@@ -1,0 +1,10 @@
+//basic formatting for a calculated column is to put all HTML and JavaScript in quotes
+//="[code]"
+="<a href='[SharePoint list or library url]?FilterField1=ID&FilterValue1="&[field ID]&"'>Other List with same ID</a>"
+
+//JavaScript for checking the date entered vs the day it is due
+=IF(ISBLANK([Due Date]),"Missing Due date","<img src='/_layouts/images/blank.gif' onload=""{"&"var SPday=new Date();"&"    SPday.setFullYear("&YEAR([Due Date])&","&MONTH([Due Date])-1&","&DAY([Due Date])&");"&"    var Days=Math.round((SPday.getTime()-new Date().getTime())/86400000);"&"    var Range=[ -365*20 , -365*10 , -365*5 , 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 14 , 21 ];"&"    var CSS=['#fff', '#fff', '#fff', '#FFD6D6', '#fff', '#CEE5CE', '#CEE5CE', '#CEE5CE', '#CEE5CE', '#CEE5CE', '#CEE5CE', '#CEE5CE', '#fff'];"&"    for (var i=0;i<Range.length;i++){var Color=CSS[i];if(Days<Range[i]){break}}"&"    var TR=this;while(TR.tagName!='TR'){TR=TR.parentNode}"&"    TR.style.backgroundColor=Color;"&"    this.parentNode.innerHTML=Math.abs(Days)+' days '+((Days<0)?'past':'left');"&"}"">")
+
+//change the color of the line item if text is found in field
+=IF(ISNUMBER(FIND("some text to find",[field name to search in])),"<img src='/_layouts/images/blank.gif' onload=""{"&"var TR=this;"&"while(TR.tagName!='TR'){TR=TR.parentNode; var TD=TR.childNodes[5];}"&"TD.style.backgroundColor='#FFD6D6';"&"}"">","")
+
