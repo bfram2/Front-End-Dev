@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<style>
+.vhtable {
+width: 550px;
+margin: 10px 0 5px 15px;
+}
+.labels {
+padding: 0 0 0 10px;
+}
+.labels2 {
+display: inline;
+}
+.break {
+border-top: 1px solid dimgrey;
+}
+</style>
+<head>
+<meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function() {
+//                                       Very Helpfuls
+//this script pulls the count from JAR VH
+var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20VH.aspx";
+$("#JARVH").load(SelectedView+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JARVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='VH rightJARVH'></span>");
+$(".rightJARVH").unwrap();
+$(".rightJARVH").unwrap();
+//remove 'Count= '
+var val = $(".rightJARVH").text();
+$(".rightJARVH").text(val.substring(7, val.length));
+//copy count numVHber and multiply by 5
+$( ".rightJARVH" ).clone().appendTo( "#ListJARVH" );
+$('#ListJARVH').text(function(i,v) {
+return Math.round(parseInt(v * 5, 10));
+});
+return false;
+});
+
+//this script pulls the count from JAE VH
+var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20VH.aspx";
+$("#JAEVH").load(SelectedView+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JAEVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='VH rightJAEVH'></span>");
+$(".rightJAEVH").unwrap();
+$(".rightJAEVH").unwrap();
+//remove 'Count= '
+var val = $(".rightJAEVH").text();
+$(".rightJAEVH").text(val.substring(7, val.length));
+//copy count numVHber and multiply by 5
+$( ".rightJAEVH" ).clone().appendTo( "#ListJAEVH" );
+$('#ListJAEVH').text(function(i,v) {
+return Math.round(parseInt(v * 5, 10));
+});
+return false;
+});
+
+//this script pulls the count from SV VH
+var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20VH.aspx";
+$("#SVVH").load(SelectedView+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#SVVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='VH rightSVVH'></span>");
+$(".rightSVVH").unwrap();
+$(".rightSVVH").unwrap();
+//remove 'Count= '
+var val = $(".rightSVVH").text();
+$(".rightSVVH").text(val.substring(7, val.length));
+//copy count numVHber and multiply by 5
+$( ".rightSVVH" ).clone().appendTo( "#ListSVVH" );
+$('#ListSVVH').text(function(i,v) {
+return Math.round(parseInt(v * 5, 10));
+});
+return false;
+});
+
+//this script pulls the count from PCM VH
+var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20VH.aspx";
+$("#PCMVH").load(SelectedView+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#PCMVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='VH rightPCMVH'></span>");
+$(".rightPCMVH").unwrap();
+$(".rightPCMVH").unwrap();
+//remove 'Count= '
+var val = $(".rightPCMVH").text();
+$(".rightPCMVH").text(val.substring(7, val.length));
+//copy count numVHber and multiply by 5
+$( ".rightPCMVH" ).clone().appendTo( "#ListPCMVH" );
+$('#ListPCMVH').text(function(i,v) {
+return Math.round(parseInt(v * 5, 10));
+});
+return false;
+});
+
+//this script pulls the count from OG VH
+var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20VH.aspx";
+$("#OGVH").load(SelectedView+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#OGVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='VH rightOGVH'></span>");
+$(".rightOGVH").unwrap();
+$(".rightOGVH").unwrap();
+//remove 'Count= '
+var val = $(".rightOGVH").text();
+$(".rightOGVH").text(val.substring(7, val.length));
+//copy count numVHber and multiply by 5
+$( ".rightOGVH" ).clone().appendTo( "#ListOGVH" );
+$('#ListOGVH').text(function(i,v) {
+return Math.round(parseInt(v * 5, 10));
+});
+return false;
+});
+});
+
+//                                          Helpfuls
+$(document).ready(function() {
+//this script pulls the count from JAR H
+var SelectedView1 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20H.aspx";
+$("#JARH").load(SelectedView1+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JARH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightJARH'></span>");
+$(".rightJARH").unwrap();
+$(".rightJARH").unwrap();
+//remove 'Count= '
+var val = $(".rightJARH").text();
+$(".rightJARH").text(val.substring(7, val.length));
+//copy count numHber and multiply by 5
+$( ".rightJARH" ).clone().appendTo("#ListJARH");
+$('#ListJARH').text(function(i,v) {
+return Math.round(parseInt(v * 4, 10));
+});
+return false;
+});
+
+//this script pulls the count from JAE H
+var SelectedView2 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20H.aspx";
+$("#JAEH").load(SelectedView2+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JAEH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightJAEH'></span>");
+$(".rightJAEH").unwrap();
+$(".rightJAEH").unwrap();
+//remove 'Count= '
+var val = $(".rightJAEH").text();
+$(".rightJAEH").text(val.substring(7, val.length));
+//copy count numHber and multiply by 5
+$( ".rightJAEH" ).clone().appendTo( "#ListJAEH" );
+$('#ListJAEH').text(function(i,v) {
+return Math.round(parseInt(v * 4, 10));
+});
+return false;
+});
+
+//this script pulls the count from SV H
+var SelectedView3 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20H.aspx";
+$("#SVH").load(SelectedView3+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#SVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightSVH'></span>");
+$(".rightSVH").unwrap();
+$(".rightSVH").unwrap();
+//remove 'Count= '
+var val = $(".rightSVH").text();
+$(".rightSVH").text(val.substring(7, val.length));
+//copy count numHber and multiply by 5
+$( ".rightSVH" ).clone().appendTo( "#ListSVH" );
+$('#ListSVH').text(function(i,v) {
+return Math.round(parseInt(v * 4, 10));
+});
+return false;
+});
+
+//this script pulls the count from PCM H
+var SelectedView4 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20H.aspx";
+$("#PCMH").load(SelectedView4+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#PCMH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightPCMH'></span>");
+$(".rightPCMH").unwrap();
+$(".rightPCMH").unwrap();
+//remove 'Count= '
+var val = $(".rightPCMH").text();
+$(".rightPCMH").text(val.substring(7, val.length));
+//copy count numHber and multiply by 5
+$( ".rightPCMH" ).clone().appendTo( "#ListPCMH" );
+$('#ListPCMH').text(function(i,v) {
+return Math.round(parseInt(v * 4, 10));
+});
+return false;
+});
+
+//this script pulls the count from OG H
+var SelectedView5 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20H.aspx";
+$("#OGH").load(SelectedView5+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#OGH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightOGH'></span>");
+$(".rightOGH").unwrap();
+$(".rightOGH").unwrap();
+//remove 'Count= '
+var val = $(".rightOGH").text();
+$(".rightOGH").text(val.substring(7, val.length));
+//copy count numHber and multiply by 5
+$( ".rightOGH" ).clone().appendTo( "#ListOGH" );
+$('#ListOGH').text(function(i,v) {
+return Math.round(parseInt(v * 4, 10));
+});
+return false;
+});
+});
+
+//                                          Somewhat Helpfuls
+$(document).ready(function() {
+//this script pulls the count from JAR SH
+var SelectedView1 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20SH.aspx";
+$("#JARSH").load(SelectedView1+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JARSH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='SH rightJARSH'></span>");
+$(".rightJARSH").unwrap();
+$(".rightJARSH").unwrap();
+//remove 'Count= '
+var val = $(".rightJARSH").text();
+$(".rightJARSH").text(val.substring(7, val.length));
+//copy count numSHber and multiply by 5
+$( ".rightJARSH" ).clone().appendTo("#ListJARSH");
+$('#ListJARSH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from JAE SH
+var SelectedView2 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20SH.aspx";
+$("#JAESH").load(SelectedView2+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JAESH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='SH rightJAESH'></span>");
+$(".rightJAESH").unwrap();
+$(".rightJAESH").unwrap();
+//remove 'Count= '
+var val = $(".rightJAESH").text();
+$(".rightJAESH").text(val.substring(7, val.length));
+//copy count numSHber and multiply by 5
+$( ".rightJAESH" ).clone().appendTo( "#ListJAESH" );
+$('#ListJAESH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from SV SH
+var SelectedView3 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20SH.aspx";
+$("#SVSH").load(SelectedView3+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#SVSH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='SH rightSVSH'></span>");
+$(".rightSVSH").unwrap();
+$(".rightSVSH").unwrap();
+//remove 'Count= '
+var val = $(".rightSVSH").text();
+$(".rightSVSH").text(val.substring(7, val.length));
+//copy count numSHber and multiply by 5
+$( ".rightSVSH" ).clone().appendTo( "#ListSVSH" );
+$('#ListSVSH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from PCM SH
+var SelectedView4 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20SH.aspx";
+$("#PCMSH").load(SelectedView4+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#PCMSH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='SH rightPCMSH'></span>");
+$(".rightPCMSH").unwrap();
+$(".rightPCMSH").unwrap();
+//remove 'Count= '
+var val = $(".rightPCMSH").text();
+$(".rightPCMSH").text(val.substring(7, val.length));
+//copy count numSHber and multiply by 5
+$( ".rightPCMSH" ).clone().appendTo( "#ListPCMSH" );
+$('#ListPCMSH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from OG SH
+var SelectedView5 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20SH.aspx";
+$("#OGSH").load(SelectedView5+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#OGSH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='SH rightOGSH'></span>");
+$(".rightOGSH").unwrap();
+$(".rightOGSH").unwrap();
+//remove 'Count= '
+var val = $(".rightOGSH").text();
+$(".rightOGSH").text(val.substring(7, val.length));
+//copy count numSHber and multiply by 5
+$( ".rightOGSH" ).clone().appendTo( "#ListOGSH" );
+$('#ListOGSH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+});
+
+
+//                                          Not Helpfuls
+$(document).ready(function() {
+//this script pulls the count from JAR NH
+var SelectedView1 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20NH.aspx";
+$("#JARNH").load(SelectedView1+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JARNH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NH rightJARNH'></span>");
+$(".rightJARNH").unwrap();
+$(".rightJARNH").unwrap();
+//remove 'Count= '
+var val = $(".rightJARNH").text();
+$(".rightJARNH").text(val.substring(7, val.length));
+//copy count numNHber and multiply by 5
+$( ".rightJARNH" ).clone().appendTo("#ListJARNH");
+$('#ListJARNH').text(function(i,v) {
+return Math.round(parseInt(v * 2, 10));
+});
+return false;
+});
+
+//this script pulls the count from JAE NH
+var SelectedView2 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20NH.aspx";
+$("#JAENH").load(SelectedView2+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JAENH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NH rightJAENH'></span>");
+$(".rightJAENH").unwrap();
+$(".rightJAENH").unwrap();
+//remove 'Count= '
+var val = $(".rightJAENH").text();
+$(".rightJAENH").text(val.substring(7, val.length));
+//copy count numNHber and multiply by 5
+$( ".rightJAENH" ).clone().appendTo( "#ListJAENH" );
+$('#ListJAENH').text(function(i,v) {
+return Math.round(parseInt(v * 2, 10));
+});
+return false;
+});
+
+//this script pulls the count from SV NH
+var SelectedView3 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20NH.aspx";
+$("#SVNH").load(SelectedView3+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#SVNH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NH rightSVNH'></span>");
+$(".rightSVNH").unwrap();
+$(".rightSVNH").unwrap();
+//remove 'Count= '
+var val = $(".rightSVNH").text();
+$(".rightSVNH").text(val.substring(7, val.length));
+//copy count numNHber and multiply by 5
+$( ".rightSVNH" ).clone().appendTo( "#ListSVNH" );
+$('#ListSVNH').text(function(i,v) {
+return Math.round(parseInt(v * 2, 10));
+});
+return false;
+});
+
+//this script pulls the count from PCM NH
+var SelectedView4 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20NH.aspx";
+$("#PCMNH").load(SelectedView4+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#PCMNH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NH rightPCMNH'></span>");
+$(".rightPCMNH").unwrap();
+$(".rightPCMNH").unwrap();
+//remove 'Count= '
+var val = $(".rightPCMNH").text();
+$(".rightPCMNH").text(val.substring(7, val.length));
+//copy count numNHber and multiply by 5
+$( ".rightPCMNH" ).clone().appendTo( "#ListPCMNH" );
+$('#ListPCMNH').text(function(i,v) {
+return Math.round(parseInt(v * 2, 10));
+});
+return false;
+});
+
+//this script pulls the count from OG NH
+var SelectedView5 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20NH.aspx";
+$("#OGNH").load(SelectedView5+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#OGNH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NH rightOGNH'></span>");
+$(".rightOGNH").unwrap();
+$(".rightOGNH").unwrap();
+//remove 'Count= '
+var val = $(".rightOGNH").text();
+$(".rightOGNH").text(val.substring(7, val.length));
+//copy count numNHber and multiply by 5
+$( ".rightOGNH" ).clone().appendTo( "#ListOGNH" );
+$('#ListOGNH').text(function(i,v) {
+return Math.round(parseInt(v * 2, 10));
+});
+return false;
+});
+});
+
+//                                          Did not Reference
+$(document).ready(function() {
+//this script pulls the count from JAR NR
+var SelectedView1 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20NR.aspx";
+$("#JARNR").load(SelectedView1+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JARNR *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NR rightJARNR'></span>");
+$(".rightJARNR").unwrap();
+$(".rightJARNR").unwrap();
+//remove 'Count= '
+var val = $(".rightJARNR").text();
+$(".rightJARNR").text(val.substring(7, val.length));
+//copy count numNRber and multiply by 5
+$( ".rightJARNR" ).clone().appendTo("#ListJARNR");
+$('#ListJARNR').text(function(i,v) {
+return Math.round(parseInt(v * 1, 10));
+});
+return false;
+});
+
+//this script pulls the count from JAE NR
+var SelectedView2 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20NR.aspx";
+$("#JAENR").load(SelectedView2+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JAENR *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NR rightJAENR'></span>");
+$(".rightJAENR").unwrap();
+$(".rightJAENR").unwrap();
+//remove 'Count= '
+var val = $(".rightJAENR").text();
+$(".rightJAENR").text(val.substring(7, val.length));
+//copy count numNRber and multiply by 5
+$( ".rightJAENR" ).clone().appendTo( "#ListJAENR" );
+$('#ListJAENR').text(function(i,v) {
+return Math.round(parseInt(v * 1, 10));
+});
+return false;
+});
+
+//this script pulls the count from SV NR
+var SelectedView3 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20NR.aspx";
+$("#SVNR").load(SelectedView3+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#SVNR *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NR rightSVNR'></span>");
+$(".rightSVNR").unwrap();
+$(".rightSVNR").unwrap();
+//remove 'Count= '
+var val = $(".rightSVNR").text();
+$(".rightSVNR").text(val.substring(7, val.length));
+//copy count numNRber and multiply by 5
+$( ".rightSVNR" ).clone().appendTo( "#ListSVNR" );
+$('#ListSVNR').text(function(i,v) {
+return Math.round(parseInt(v * 1, 10));
+});
+return false;
+});
+
+//this script pulls the count from PCM NR
+var SelectedView4 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20NR.aspx";
+$("#PCMNR").load(SelectedView4+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#PCMNR *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NR rightPCMNR'></span>");
+$(".rightPCMNR").unwrap();
+$(".rightPCMNR").unwrap();
+//remove 'Count= '
+var val = $(".rightPCMNR").text();
+$(".rightPCMNR").text(val.substring(7, val.length));
+//copy count numNRber and multiply by 5
+$( ".rightPCMNR" ).clone().appendTo( "#ListPCMNR" );
+$('#ListPCMNR').text(function(i,v) {
+return Math.round(parseInt(v * 1, 10));
+});
+return false;
+});
+
+//this script pulls the count from OG NR
+var SelectedView5 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20NR.aspx";
+$("#OGNR").load(SelectedView5+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#OGNR *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='NR rightOGNR'></span>");
+$(".rightOGNR").unwrap();
+$(".rightOGNR").unwrap();
+//remove 'Count= '
+var val = $(".rightOGNR").text();
+$(".rightOGNR").text(val.substring(7, val.length));
+//copy count numNRber and multiply by 5
+$( ".rightOGNR" ).clone().appendTo( "#ListOGNR" );
+$('#ListOGNR').text(function(i,v) {
+return Math.round(parseInt(v * 1, 10));
+});
+return false;
+});
+});
+
+//                        Added totals for items
+setTimeout(function() {
+//sum of tot VH
+var addsVH = 0;
+$('.VH').each(function(){
+    addsVH += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#VHsum").text(addsVH);
+
+//sum of tot H
+var addsH = 0;
+$('.H').each(function(){
+    addsH += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#Hsum").text(addsH);
+
+//sum of tot SH
+var addsSH = 0;
+$('.SH').each(function(){
+    addsSH += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#SHsum").text(addsSH);
+
+//sum of tot NH
+var addsNH = 0;
+$('.NH').each(function(){
+    addsNH += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#NHsum").text(addsNH);
+
+//sum of tot NR
+var addsNR = 0;
+$('.NR').each(function(){
+    addsNR += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#NRsum").text(addsNR);
+
+//                        Added totals for multiplication
+//sum of H
+var sum = 0;
+$('.numH').each(function(){
+    sum += parseFloat($(this).text());
+});
+$("#outputH").text(sum);
+
+//sum of SH
+var sumSH = 0;
+$('.numSH').each(function(){
+    sumSH += parseFloat($(this).text());
+});
+$("#outputSH").text(sumSH);
+//sum of VH
+var sum = 0;
+$('.numVH').each(function(){
+    sum += parseFloat($(this).text());
+});
+$("#outputVH").text(sum);
+//sum of NH
+var sum = 0;
+$('.numNH').each(function(){
+    sum += parseFloat($(this).text());
+});
+$("#outputNH").text(sum);
+
+//sum of NR
+var sumNR = 0;
+$('.numNR').each(function(){
+    sumNR += parseFloat($(this).text());
+});
+$("#outputNR").text(sumNR);
+}, 6000);
+
+//absolute totals
+setTimeout(function() {
+var addst = 0;
+$('.tot').each(function(){
+    addst += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#sumtot").text(addst);
+
+var abs = 0;
+$('.output').each(function(){
+    abs += parseFloat($(this).text());
+});
+$("#abs").text(abs);
+}, 7500);
+
+/*
+http://teamsites.adm.com/sites/oneadm/1ADM/_layouts/ViewType.aspx?List=%7B4859EF80%2D8254%2D47A6%2DB573%2D4E07A19CFC41%7D
+
+How helpful were Job aids / reference materials?
+How helpful were Weekly Job Aid clarification emails? 
+How helpful were Simulations / videos?
+How helpful were Posted classroom materials?
+How helpful were Online Glossary items?
+
+5 Very Helpful
+4 Helpful
+3 Somewhat Helpful
+2 Not Helpful
+1 Did not reference
+
+JAR VH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20VH.aspx
+JAR H  http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20H.aspx
+JAR SH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20SH.aspx
+JAR NH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20NH.aspx
+JAR NR http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20NR.aspx
+
+JAE VH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20VH.aspx
+JAE H  http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20H.aspx
+JAE SH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20SH.aspx
+JAE NH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20NH.aspx
+JAE NR http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20NR.aspx
+
+SV VH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20VH.aspx
+SV H  http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20H.aspx
+SV SH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20SH.aspx
+SV NH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20NH.aspx
+SV NR http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20NR.aspx
+
+PCM VH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20VH.aspx
+PCM H  http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20H.aspx
+PCM SH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20SH.aspx
+PCM NH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20NH.aspx
+PCM NR http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20NR.aspx
+
+OG VH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20VH.aspx
+OG H  http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20H.aspx
+OG SH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20SH.aspx
+OG NH http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20H.aspx
+OG NR http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20NR.aspx
+*/
+
+</script>
+</head>
+
+<body>
+<table><tbody>
+<tr>
+<td>
+<!-- VH -->
+<table class="vhtable"><tbody>
+<tr>
+<td><DIV class="labels">Job aids/reference: </DIV></td>
+<td><div class="labels2">Very Helpfuls= </div><span id="JARVH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numVH" id="ListJARVH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Weekly Job Aid clarification emails: </DIV></td>
+<td><div class="labels2">Very Helpfuls= </div><span id="JAEVH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numVH" id="ListJAEVH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Simulations / videos: </DIV></td>
+<td><div class="labels2">Very Helpfuls= </div><span id="SVVH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numVH" id="ListSVVH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Posted classroom materials: </DIV></td>
+<td><div class="labels2">Very Helpfuls= </div><span id="PCMVH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numVH" id="ListPCMVH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Online Glossary: </DIV></td>
+<td><div class="labels2">Very Helpfuls= </div><span id="OGVH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numVH" id="ListOGVH"></span></td>
+</tr>
+<tr><td colspan="3" class="break"></td></tr>
+<tr>
+<!-- sum of multiplied scores -->
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Very Helpfuls= </div><span class="tot" id="VHsum"></span></td>
+<td><div class="labels2">Score= </div><span class="output" id="outputVH"></span></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<!-- H -->
+<table class="vhtable"><tbody>
+<tr>
+<td><DIV class="labels">Job aids/reference: </DIV></td>
+<td><div class="labels2">Helpfuls= </div><span id="JARH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numH" id="ListJARH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Weekly Job Aid clarification emails: </DIV></td>
+<td><div class="labels2">Helpfuls= </div><span id="JAEH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numH" id="ListJAEH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Simulations / videos: </DIV></td>
+<td><div class="labels2">Helpfuls= </div><span class="" id="SVH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numH" id="ListSVH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Posted classroom materials: </DIV></td>
+<td><div class="labels2">Helpfuls= </div><span class="" id="PCMH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numH" id="ListPCMH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Online Glossary: </DIV></td>
+<td><div class="labels2">Helpfuls= </div><span class="" id="OGH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numH" id="ListOGH"></span></td>
+</tr>
+<tr><td colspan="3" class="break"></td></tr>
+<tr>
+<!-- sum of multiplied scores -->
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Helpfuls= </div><span class="tot" id="Hsum"></span></td>
+<td><div class="labels2">Score= </div><span class="output" id="outputH"></span></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<!-- SH -->
+<table class="vhtable"><tbody>
+<tr>
+<td><DIV class="labels">Job aids/reference: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="" id="JARSH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numSH" id="ListJARSH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Weekly Job Aid clarification emails: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="" id="JAESH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numSH" id="ListJAESH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Simulations / videos: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="" id="SVSH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numSH" id="ListSVSH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Posted classroom materials: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="" id="PCMSH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numSH" id="ListPCMSH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Online Glossary: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="" id="OGSH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numSH" id="ListOGSH"></span></td>
+</tr>
+<tr><td colspan="3" class="break"></td></tr>
+<tr>
+<!-- sum of multiplied scores -->
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="tot" id="SHsum"></span></td>
+<td><div class="labels2">Score= </div><span class="output" id="outputSH"></span></td>
+</tr>
+</tbody></table>
+</td>
+</tr><tr>
+<td>
+<!-- NH -->
+<table class="vhtable"><tbody>
+<tr>
+<td><DIV class="labels">Job aids/reference: </DIV></td>
+<td><div class="labels2">Not Helpfuls= </div><span class="" id="JARNH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numNH" id="ListJARNH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Weekly Job Aid clarification emails: </DIV></td>
+<td><div class="labels2">Not Helpfuls= </div><span class="" id="JAENH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numNH" id="ListJAENH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Simulations / videos: </DIV></td>
+<td><div class="labels2">Not Helpfuls= </div><span class="" id="SVNH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numNH" id="ListSVNH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Posted classroom materials: </DIV></td>
+<td><div class="labels2">Not Helpfuls= </div><span class="" id="PCMNH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numNH" id="ListPCMNH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Online Glossary: </DIV></td>
+<td><div class="labels2">Not Helpfuls= </div><span class="" id="OGNH"></span></td>
+<td><div class="labels2">Score= </div><span class=" numNH" id="ListOGNH"></span></td>
+</tr>
+<tr><td colspan="3" class="break"></td></tr>
+<tr>
+<!-- sum of multiplied scores -->
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Not Helpfuls= </div><span class="tot" id="NHsum"></span></td>
+<td><div class="labels2">Score= </div><span class="output" id="outputNH"></span></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<!-- NR -->
+<table class="vhtable"><tbody>
+<tr>
+<td><DIV class="labels">Job aids/reference: </DIV></td>
+<td><div class="labels2">Did not references= </div><span id="JARNR"></span></td>
+<td><div class="labels2">Score= </div><span class="numNR" id="ListJARNR"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Weekly Job Aid clarification emails: </DIV></td>
+<td><div class="labels2">Did not references= </div><span id="JAENR"></span></td>
+<td><div class="labels2">Score= </div><span class="numNR" id="ListJAENR"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Simulations / videos: </DIV></td>
+<td><div class="labels2">Did not references= </div><span id="SVNR"></span></td>
+<td><div class="labels2">Score= </div><span class="numNR" id="ListSVNR"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Posted classroom materials: </DIV></td>
+<td><div class="labels2">Did not references= </div><span id="PCMNR"></span></td>
+<td><div class="labels2">Score= </div><span class="numNR" id="ListPCMNR"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Online Glossary: </DIV></td>
+<td><div class="labels2">Did not references= </div><span id="OGNR"></span></td>
+<td><div class="labels2">Score= </div><span class="numNR" id="ListOGNR"></span></td>
+</tr>
+<tr><td colspan="3" class="break"></td></tr>
+<tr>
+<!-- sum of multiplied scores -->
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Did not references= </div><span class="tot" id="NRsum"></span></td>
+<td><div class="labels2">Score= </div><span class="output" id="outputNR"></span></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table class="vhtable"><tbody>
+<tr>
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Sum of Totals= </div><span id="sumtot"></span></td>
+<td><div class="labels2">Total Score= </div><span id="abs"></span></td></td>
+</tr></tbody></table>
+</td>
+</tr></tbody></table>
+</body>
+</html>

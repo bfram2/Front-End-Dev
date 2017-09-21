@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<style>
+.vhtable {
+width: 550px;
+margin: 10px 0 5px 15px;
+}
+.labels {
+padding: 0 0 0 10px;
+}
+.labels2 {
+display: inline;
+}
+.break {
+border-top: 1px solid dimgrey;
+}
+</style>
+<head>
+<meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function() {
+//this script pulls the count from JAR SH
+var SelectedView1 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAR%20SH.aspx";
+$("#JARH").load(SelectedView1+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JARH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightJARH'></span>");
+$(".rightJARH").unwrap();
+$(".rightJARH").unwrap();
+//remove 'Count= '
+var val = $(".rightJARH").text();
+$(".rightJARH").text(val.substring(7, val.length));
+//copy count number and multiply by 5
+$( ".rightJARH" ).clone().appendTo("#ListJARH");
+$('#ListJARH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from JAE SH
+var SelectedView2 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/JAE%20SH.aspx";
+$("#JAEH").load(SelectedView2+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#JAEH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightJAEH'></span>");
+$(".rightJAEH").unwrap();
+$(".rightJAEH").unwrap();
+//remove 'Count= '
+var val = $(".rightJAEH").text();
+$(".rightJAEH").text(val.substring(7, val.length));
+//copy count number and multiply by 5
+$( ".rightJAEH" ).clone().appendTo( "#ListJAEH" );
+$('#ListJAEH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from SV SH
+var SelectedView3 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/SV%20SH.aspx";
+$("#SVH").load(SelectedView3+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#SVH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightSVH'></span>");
+$(".rightSVH").unwrap();
+$(".rightSVH").unwrap();
+//remove 'Count= '
+var val = $(".rightSVH").text();
+$(".rightSVH").text(val.substring(7, val.length));
+//copy count number and multiply by 5
+$( ".rightSVH" ).clone().appendTo( "#ListSVH" );
+$('#ListSVH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from PCM SH
+var SelectedView4 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/PCM%20SH.aspx";
+$("#PCMH").load(SelectedView4+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#PCMH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightPCMH'></span>");
+$(".rightPCMH").unwrap();
+$(".rightPCMH").unwrap();
+//remove 'Count= '
+var val = $(".rightPCMH").text();
+$(".rightPCMH").text(val.substring(7, val.length));
+//copy count number and multiply by 5
+$( ".rightPCMH" ).clone().appendTo( "#ListPCMH" );
+$('#ListPCMH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+
+//this script pulls the count from OG SH
+var SelectedView5 = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/PostGoLive/OG%20SH.aspx";
+$("#OGH").load(SelectedView5+" #WebPartWPQ2 .ms-vb2:contains('Count')",function() {
+$("#OGH *").removeAttr("id").removeAttr("onclick").removeAttr("onfocus").removeAttr("onmouseover");
+$(".ms-vb2 nobr:contains('Count')").wrapInner( "<span class='H rightOGH'></span>");
+$(".rightOGH").unwrap();
+$(".rightOGH").unwrap();
+//remove 'Count= '
+var val = $(".rightOGH").text();
+$(".rightOGH").text(val.substring(7, val.length));
+//copy count number and multiply by 5
+$( ".rightOGH" ).clone().appendTo( "#ListOGH" );
+$('#ListOGH').text(function(i,v) {
+return Math.round(parseInt(v * 3, 10));
+});
+return false;
+});
+});
+
+setTimeout(function() {
+var adds = 0;
+$('.H').each(function(){
+    adds += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#Hsum").text(adds);
+
+var sum = 0;
+$('.num').each(function(){
+    sum += parseFloat($(this).text());
+});
+$("#output").text(sum);
+}, 3000);
+</script>
+</head>
+
+<body>
+<table class="vhtable"><tbody>
+<tr>
+<td><DIV class="labels">Job aids/reference: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="hide" id="JARH"></span></td>
+<td><div class="labels2">Score= </div><span class="hide num" id="ListJARH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Weekly Job Aid clarification emails: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="hide" id="JAEH"></span></td>
+<td><div class="labels2">Score= </div><span class="hide num" id="ListJAEH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Simulations / videos: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="hide" id="SVH"></span></td>
+<td><div class="labels2">Score= </div><span class="hide num" id="ListSVH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Posted classroom materials: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="hide" id="PCMH"></span></td>
+<td><div class="labels2">Score= </div><span class="hide num" id="ListPCMH"></span></td>
+</tr>
+<tr>
+<td><DIV class="labels">Online Glossary: </DIV></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span class="hide" id="OGH"></span></td>
+<td><div class="labels2">Score= </div><span class="hide num" id="ListOGH"></span></td>
+</tr>
+<tr><td colspan="3" class="break"></td></tr>
+<tr>
+<!-- sum of multiplied scores -->
+<td><div class="labels">Totals:</div></td>
+<td><div class="labels2">Somewhat Helpfuls= </div><span id="Hsum"></span></td>
+<td><div class="labels2">Score= </div><span class="output" id="output"></span></td>
+</tr>
+</tbody></table>
+</body>
+</html>
