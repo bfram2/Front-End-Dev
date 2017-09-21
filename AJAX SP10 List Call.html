@@ -1,0 +1,56 @@
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://teamsites.adm.com/sites/oneadm/1ADM/TR/SiteAssets/jquery.SPServices-0.7.1a.min.js"></script>
+<script>
+$(document).ready(function(){
+
+//call AJAX
+//field to edit -> url: "http://[SharePoint site]/[site]/[subsite]/_vti_bin/owssvr.dll?Cmd=Display&XMLDATA=TRUE&List=[find in list settings url]&CacheControl=0"
+$.ajax({
+url: "/_vti_bin/owssvr.dll?Cmd=Display&XMLDATA=TRUE&List={}&CacheControl=0",
+type: "POST",
+dataType: "xml",
+complete: processResult,
+contentType: "text/xml; charset='utf-8'",
+success: function(data){ /*alert(data);*/ }, //alert of xml to show success
+error: ErrorFunc,
+});
+});
+
+//checks for errors in AJAX call
+function ErrorFunc(xData, status) {
+debugger;
+$('#WSResponse').text(xData.responseText);
+}
+
+function processResult(xData, status) {
+var liHtml = null;                           //make variable blank for error checking
+//$('#WSResponse').text(status+" "+xData.responseText); //debugging XML output, add back to code to see xml status and the xml itself
+
+$(xData.responseXML).find("z\\:row,row").each(function() {
+//this is the formatting for displayed items It works by adding <li></li> to the html at the bottom for each list item
+//when pulling in list items use the ows attribute found by typing in the url in the AJAX call
+//z:row in the AJAX call url holds the SP list line items
+//s:AttributeType in the AJAX call lists the ows attribute names
+liHtml = "<li>" + $(this).attr("ows_LinkTitle") + "</li>";
+liHtml += "<ul>" + "<li>Role ID: " + $(this).attr("ows_ID") + "</li>" + "</ul>";
+$("#tasksUL").append(liHtml);
+});
+
+}
+
+// Extra Information:
+//("z\\:row,row")                                               <-- This one works best with .responseXML & SP10
+// ("[nodeName='z:row']")                                       <-- works best over multiple browsers
+// ("z\\:row")                                                  <-- works best with older browsers
+//("//z:row[@ows_ID='" + [insert variable] + "']"));            <-- filter based on ID number
+// xData.responseXML.xml, xData.responseXML, xData.responseText <-- AJAX responses to pick from
+// processData: false,                                          <-- debugging AJAX
+// contentType: "text/xml; charset=\"utf-8\"",                  <-- AJAX contentType(s) for SOAP formatting, info: /_vti_bin/lists.asmx
+//contentType: "application/soap+xml; charset=\"utf-8\"",       
+// data: soapEnv,                                               <-- SOAP build using below variable to create view, insert variable after '$(document).ready(function(){'
+/*var soapEnv = '<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><GetList xmlns="http://schemas.microsoft.com/sharepoint/soap/"><listName>list_name</listName></GetList></soap:Body></soap:Envelope>';*/
+
+</script>
+
+<ul id="tasksUL"/>
+<div id="WSResponse"/>

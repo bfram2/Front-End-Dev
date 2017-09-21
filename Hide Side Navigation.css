@@ -1,0 +1,9 @@
+<style type="text/css">     
+    /* hide quick launch */    
+    #s4-leftpanel {
+      display: none;
+    }
+    .s4-ca {
+      margin-left: 15px;
+    }
+</style>
