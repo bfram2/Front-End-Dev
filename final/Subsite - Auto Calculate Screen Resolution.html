@@ -1,0 +1,56 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+var currentHeight;
+var currentWidth;
+$(window).resize(function () {
+   var windowHeight = $(window).height();
+   var windowWidth = $(window).width();
+
+   if (currentHeight == undefined || currentHeight != windowHeight
+      || currentWidth == undefined || currentWidth != windowWidth) {
+      currentHeight = windowHeight;
+      currentWidth = windowWidth;
+	  /* x <= 1024+ for mobile and 4:3 ratio monitors */
+	  if (currentWidth <= 1281) {
+	  $("div[id='cst']").css({left: '55px'});
+	  $("div[id='allhours']").css({left: '817px'});
+	  }
+	  /* range of 1280 < x <= 1920 for widescreen ave monitors */
+	  if (currentWidth > 1282) {
+		if (currentWidth <= 1921) {
+	  $("div[id='cst']").css({left: '375px'});
+	  $("div[id='allhours']").css({left: '1137px'});
+		}
+	  }
+	  /*center 40-60% to left, for 1921 < x widescreen advanced monitors */
+	  if (currentWidth > 1921) {
+	  $("div[id='cst']").css({left: '355px'});
+	  $("div[id='allhours']").css({left: '1117px'});
+	  }
+	}
+ });
+});
+// this automatically calculates the resolution of teh screen and adjusts the divs with matching classes' left movement
+// very useful for position absolute objects
+</script>
+
+<style>
+#cst {
+position: absolute;
+text-align: center;
+left: 375px;
+top: 863px;
+background-color: #FEBE00;
+padding: 13px 248px 13px 248px;
+}
+#allhours {
+position: absolute;
+text-align: center;
+left: 1137px;
+top: 863px;
+background-color: #FEBE00;
+padding: 13px 38px 13px 38px;
+}
+</style>

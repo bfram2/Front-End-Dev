@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+#clockdiv{
+    font-family: verdana;
+    color: #000;
+    display: none;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+#clockdiv > div{
+    padding: 10px;
+    color: #6464BD;
+    display: inline-block;
+}
+#clockdiv div > span{
+    padding: 15px;
+    color: #30305A;
+    display: inline-block;
+}
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+}
+</style>
+<div id="clockdiv">
+  <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+</div>
+
+<script>
+//count down timer for days, displays # of days left with 'days' under it
+//if today and the deadline is equal it will be '-1', so set as: deadline + 1 day
+//this will continue after the deadline with negative days
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+  };
+}
+function initializeClock(id, endtime) {
+  var star = document.getElementById("clockdiv").style.display = 'inline-block';
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+    daysSpan.innerHTML = t.days;
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+//scheduled times with start and end dates
+var schedule = [
+    ['March 20 2016', 'March 29 2016'],
+    ['March 31 2016', 'May 11 2016'],
+    ['July 26 2016', 'July 25 2030']
+];
+// iterate over each element in the schedule
+for(var i=0; i<schedule.length; i++){
+  var startDate = schedule[i][0];
+  var endDate = schedule[i][1];
+
+  // put dates in milliseconds for easy comparisons
+  var startMs = Date.parse(startDate);
+  var endMs = Date.parse(endDate);
+  var currentMs = Date.parse(new Date());
+
+  // if current date is between start and end dates, display clock
+  if(endMs > currentMs && currentMs >= startMs ){
+      initializeClock('clockdiv', endDate);
+  }
+}
+</script>
+</body>
+</html>
