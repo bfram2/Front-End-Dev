@@ -1,0 +1,113 @@
+<style>
+.metric table {
+border-collapse: collapse;
+text-align: center;
+}
+.metric td {
+
+border: none;
+}
+td.gr {
+background: #fff url("http://teamsites.adm.com/sites/oneadm/1ADM/SiteAssets/SitePages/Metrics%20and%20Status/ombackground.png") no-repeat left;
+}
+td.bl {
+background: #fff url("http://teamsites.adm.com/sites/oneadm/1ADM/SiteAssets/SitePages/Metrics%20and%20Status/pmbackground.png") no-repeat left;
+}
+p.sub {
+font-size: 9pt;
+color: black; 
+text-align: center;
+padding-left: 7px;
+padding-right: 7px;
+}
+/* hide quick launch */    
+#s4-leftpanel {
+display: none;
+}
+.s4-ca {
+margin-left: 15px;
+}
+.up {
+font-size: 45pt;
+text-align: center;
+}
+.blue {
+color: #01478C;
+}
+.green {
+color: #008C00;
+}
+.upd {
+color: black;
+font-size: 10pt;
+text-align: right;
+}
+</style>
+</script>
+<table class="metric" style="height: 378px; width: 749px"><tbody><tr><td style="height: 181px; width: 40px"><img alt="operationalmetrics.png" src="/sites/oneadm/1ADM/SiteAssets/SitePages/Metrics%20and%20Status/operationalmetrics.png" style="padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px"/></td>
+<td class="gr" style="height: 181px; width: 166px">
+<p class="up green one">
+</p><p class="sub">PM&#39;s updated in the System</p></td>
+<td class="gr" style="height: 181px; width: 166px">
+<p class="up green two"></p><p class="sub">Purchase Requisitions created</p></td>
+<td class="gr" style="height: 181px; width: 166px">
+<p class="up green three"></p><p class="sub">Purchase Orders Processed</p></td>
+<td class="gr" style="height: 181px; width: 166px">
+<p class="up green four"></p><p class="sub">Work Orders Entered</p></td>
+</tr>
+<tr>
+<td style="height: 184px; width: 40px"><img alt="projectmetrics.png" src="/sites/oneadm/1ADM/SiteAssets/SitePages/Metrics%20and%20Status/projectmetrics.png" style="padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px"/></td>
+<td class="bl" style="height: 184px; width: 166px">
+<p class="up blue five"></p><p class="sub">Number of locations live on JDEdwards</p></td>
+<td class="bl" style="height: 184px; width: 166px">
+<p class="up blue six"></p><p class="sub">Users creating transactions in the system</p></td>
+<td class="bl" style="height: 184px; width: 166px">
+<p class="up blue seven"></p><p class="sub">Number of Resources contributing time to the delivery of 1ADM</p></td>
+<td class="bl" style="height: 184px; width: 166px">
+<p class="up blue eight"></p><p class="sub">Number of partners contributing time to the delivery of 1ADM</p>
+</td></tr></tbody></table>
+<div class="upd">Last updated: <span class="update"></span></div>
+
+<!-- Load and don't display list -->
+<DIV id="ListPlaceholder"></DIV> 
+<DIV id="ListPlace"></DIV> 
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+var SelectedView = "http://teamsites.adm.com/sites/GLOPMO/Test/Lists/Wave%20Metrics/Numbers.aspx";
+$("#ListPlaceholder").load(SelectedView+" #WebPartWPQ2 .ms-itmhover",function() {
+$("#ListPlaceholder *").removeAttr("id");
+$("#ListPlaceholder *").removeAttr("onclick");
+$("#ListPlaceholder *").removeAttr("onfocus");
+$("#ListPlaceholder *").removeAttr("onmouseover");
+$("th.ms-vh2").css("display","none");
+$("th.ms-viewheadertr").css("display","none");
+$(".ms-vb-itmcbx").css("display","none");
+$(".ms-vh-icon").css("display","none");
+$("td.ms-vb2").css("display","none");
+//$(".up").append($(this).text()+" "); error checking
+$(".one").append($(this).text().substr(0,3));
+$(".two").append($(this).text().substr(3,3));
+$(".three").append($(this).text().substr(6,2));
+$(".four").append($(this).text().substr(8,2));
+$(".five").append($(this).text().substr(10,2));
+$(".six").append($(this).text().substr(12,3));
+$(".seven").append($(this).text().substr(15,3));
+$(".eight").append($(this).text().substr(18,3));
+$(".sub").remove("Numbers ");
+});
+
+var SelectedView = "http://teamsites.adm.com/sites/GLOPMO/Test/Lists/Wave%20Metrics/Modified%20date.aspx";
+$("#ListPlace").load(SelectedView+" #WebPartWPQ2 .ms-itmhover",function() {
+$("#ListPlace *").removeAttr("id");
+$("#ListPlace *").removeAttr("onclick");
+$("#ListPlace *").removeAttr("onfocus");
+$("#ListPlace *").removeAttr("onmouseover");
+$("th.ms-vh2").css("display","none");
+$("th.ms-viewheadertr").css("display","none");
+$(".ms-vb-itmcbx").css("display","none");
+$(".ms-vh-icon").css("display","none");
+$("td.ms-vb2").css("display","none");
+$(".update").append($(this).text().substr(0,9));
+//$(".sub").remove("Modified ");
+});
+</script>
