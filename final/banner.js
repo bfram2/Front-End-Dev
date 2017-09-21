@@ -4,7 +4,7 @@
 <script src="//cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script> 
 */
 
-$('.ms-quickLaunch').prepend('<a href="http://teamsites.adm.com/sites/oneadm/1ADM/SitePages/main.aspx" alt="home"><img src="http://teamsites.adm.com/sites/oneadm/1ADM/SiteAssets/1ADM%20Logo.jpg" style="border:none;"></img></a>'); //add logo to navigation bar
+$('.ms-quickLaunch').prepend('<a href="#" alt="home"><img src="#" style="border:none;"></img></a>'); //add logo to navigation bar
 
 $(document).ready(function(){
 /*var months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER']; //souptonuts month and year
@@ -17,7 +17,7 @@ document.getElementById("souptonuts").innerHTML = currmon+' '+year; //input mont
 
 $("a.soupl").on("click", function OpenDialog(URL) {
      var options = SP.UI.$create_DialogOptions();
-     options.url = 'http://teamsites.adm.com/sites/oneadm/1ADM/Lists/Updates/SoupApp.aspx';
+     options.url = '#';
      options.width = 1024;
      options.height = 800;
      SP.UI.ModalDialog.showModalDialog(options);
@@ -31,7 +31,7 @@ jQuery.noConflict();
 });
 
 function getBINews() {
-var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/BI%20Updates/View.aspx";
+var SelectedView = "#";
 $("#binews").load(SelectedView+" #WebPartWPQ2 .ms-listviewtable",function() {
 $("#binews *").removeAttr("onclick");
 $("#binews *").removeAttr("onfocus");
@@ -50,7 +50,7 @@ $(".s4-itm-cbx").css("display","none");
 }
 
 function getBIUpdates() {
-var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/BI%20Updates/Training.aspx";
+var SelectedView = "#";
 $("#biup").load(SelectedView+" #WebPartWPQ2 .ms-listviewtable",function() {
 $("#biup *").removeAttr("onclick");
 $("#biup *").removeAttr("onfocus");
@@ -70,7 +70,7 @@ $(".s4-itm-cbx").css("display","none");
 
 //gather up the News items using JQuery SPServices API
 function getNews() {
-var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/Updates/WebApp.aspx";
+var SelectedView = "#";
 $("#newsfeed").load(SelectedView+" #WebPartWPQ2 .ms-listviewtable",function() {
 $("#newsfeed *").removeAttr("onclick");
 $("#newsfeed *").removeAttr("onfocus");
@@ -91,7 +91,7 @@ $(".s4-itm-cbx").css("display","none");
 
 //gather up the Spotlight items using JQuery SPServices API
 function getSpot() {
-	var SelectedView = "http://teamsites.adm.com/sites/oneadm/1ADM/Lists/Updates/SpotlightApp.aspx";
+	var SelectedView = "#";
 $("#spotlight").load(SelectedView+" #WebPartWPQ2 .ms-listviewtable",function() {
 $("#spotlight *").removeAttr("onclick");
 $("#spotlight *").removeAttr("onfocus");
