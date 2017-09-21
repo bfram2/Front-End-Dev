@@ -1,0 +1,26 @@
+<!-- Load and display SharePoint 2010 list - jQuery static version, slow -->
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+var SelectedView = "#";
+$("#ListPlaceholder").load(SelectedView+" #WebPartWPQ2 .ms-listviewtable",function() {
+$("#ListPlaceholder *").removeAttr("id");
+$("#ListPlaceholder *").removeAttr("onclick");
+$("#ListPlaceholder *").removeAttr("onfocus");
+$("#ListPlaceholder *").removeAttr("onmouseover");
+$("th.ms-vh2").css("display","none");});
+</script>
+<style>
+.ms-vb a {
+font-weight: bold;
+font-family: verdana;
+font-size: 10pt;
+color: #0B5992 !important;
+}
+.ms-WPHeader {
+background-color: #d9d9d9 !important;
+}
+TABLE.ms-listviewtable TBODY TR.ms-newsletteralt TD {
+background-color: #d9d9d9 !important;
+}
+</style>
+<div id="ListPlaceholder"></div>
