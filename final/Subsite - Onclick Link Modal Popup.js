@@ -11,4 +11,6 @@ $(".super").on("click", function OpenDialog(URL) {
 });
 // creates a modal popup for the link it is attached to, use class on anchor
 // be sure to make href="#" on anchor
+//or make it one line in HTML anchor:
+//<a onclick="javascript:SP.UI.ModalDialog.OpenPopUpPage('URL',null,1024,600);" href="javascript:void(0);">
 </script>
