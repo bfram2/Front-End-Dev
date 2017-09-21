@@ -1,0 +1,43 @@
+1. Filter SP List
+  use the background names, found by filtering on the item and searching the url or in the xml it is after the ows_[field name]
+  Multiple values (separate with ; delimiter): &FilterName=LinkTitle&FilterMultiValue= 
+  Single value: &FilterField1=LinkTitle&FilterValue1=
+
+2. Views
+  2a. Surveys
+    edit view steps: Go to survey view > edit page > edit WebPartWPQ2 > edit current view
+    edit view directly: [SP site]/[subsite]/_layouts/viewedit.aspx?List={}&View={}
+    create view: [SP site]/[subsite]/_layouts/ViewType.aspx?List={}
+    edit new view: [SP site]/[subsite]/_layouts/ViewNew.aspx?List={}&View={}
+
+3. Default Forms
+  New: /NewForm.aspx
+  Display: /DispForm.aspx
+  Edit: /EditForm.aspx
+
+
+4. Navigation
+4a. Left Navigation
+Add Top Image: <script>$('.ms-quickLaunch').prepend('<a href="#" alt="home"><img src="#" style="border:none;"></img></a>');</script>
+Hide Nav: <style>#s4-leftpanel { display: none; } .s4-ca { margin-left: 15px; }</style>
+Hide Recently Modified: <style>.s4-recentchanges { display: none;}</style>
+4b. Top and Left Navigation
+Hide All (Nuclear Option, requires '?Contents=1' to undo): 
+<style>
+#s4-ribbonrow, .ms-cui-topBar2, .s4-notdlg, 
+.s4-pr s4-ribbonrowhidetitle, .s4-notdlg noindex, 
+#ms-cui-ribbonTopBars, #s4-titlerow, #s4-pr s4-notdlg s4-titlerowhidetitle, 
+#s4-leftpanel-content {
+display:none !important;
+}
+.s4-ca{margin-left:0px !important; margin-right:0px !important;}
+</style>
+
+5. Web Parts
+5a. Debugging/Error Checking
+Remove web part: Add to end of page url '?Contents=1'
+
+5b. Display List in Modal (2 ways)
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script><script>$(document).ready(function(){$(".super").on("click", function OpenDialog(URL) {     var options = SP.UI.$create_DialogOptions();     options.url = '/sites/oneadm/1ADM/Lists/Super%20Users/AllItems.aspx';     options.width = 1024;     options.height = 800;     SP.UI.ModalDialog.showModalDialog(options);     });});// creates a modal popup for the link it is attached to, use class on anchor// be sure to make href="#" on anchor</script>
+
