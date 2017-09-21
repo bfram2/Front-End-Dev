@@ -1,0 +1,5 @@
+Calculated column using if statements and HTML
+="<a href='https://www.google.com/maps/place/"&Location&"' target='_blank'>"&Location&"</a>"
+
+
+=IF([Wave]="Wave 1","<a href='http://teamsites.adm.com/sites/oneadm/1ADM/Lists/GoLive%20Resp%20by%20Wave/Wave%201.aspx' target='_blank'>"&Wave&"</a>",IF([Wave]="Wave 2", "<a href='http://teamsites.adm.com/sites/oneadm/1ADM/Lists/GoLive%20Resp%20by%20Wave/Wave%202.aspx' target='_blank'>"&Wave&"</a>", IF([Wave]="Wave 3", "<a href='http://teamsites.adm.com/sites/oneadm/1ADM/Lists/GoLive%20Resp%20by%20Wave/Wave%203.aspx' target='_blank'>"&Wave&"</a>", IF([Wave]="Wave 4", "<a href='http://teamsites.adm.com/sites/oneadm/1ADM/Lists/GoLive%20Resp%20by%20Wave/Wave%204.aspx' target='_blank'>"&Wave&"</a>",IF([Wave]="Wave 5", "<a href='http://teamsites.adm.com/sites/oneadm/1ADM/Lists/GoLive%20Resp%20by%20Wave/Wave%205.aspx' target='_blank'>"&Wave&"</a>",IF([Wave]="Wave 6", "<a href='http://teamsites.adm.com/sites/oneadm/1ADM/Lists/GoLive%20Resp%20by%20Wave/Wave%206.aspx' target='_blank'>"&Wave&"</a>"," ")))))) 

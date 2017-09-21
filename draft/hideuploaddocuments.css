@@ -1,0 +1,18 @@
+<style type="text/css"> 
+#Ribbon\.Documents\.New\.AddDocument-Large
+{     
+	display:none !important; 
+}
+</style>
+<style type="text/css"> 
+#Ribbon\.Documents\.New\.NewFolder-Large
+{     
+	display:none !important; 
+}
+</style>
+<style type="text/css"> 
+td.ms-addnew
+{     
+	display:none !important; 
+} 
+</style>

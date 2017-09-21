@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+	<!--Edit Elements.xml in the Timesheet Ribbon -->
+
+  <!--This Elements.xml file contains custom action examples that remove, modify, or disable
+       buttons and other controls on the Timesheet tab of the ribbon on the Timesheet page in 
+       Project Web App (http://ServerName/ProjectServerName/timesheet.aspx). 
+       The following custom actions work when the timesheet is in single entry mode.
+  -->
+
+  <!-- Remove the Send Status drop-down control in the Submit group. -->
+  <CustomAction
+          Id="Ribbon.ContextualTabs.TiedMode.Home.Sheet.SubmitMenu"
+          Location="CommandUI.Ribbon"
+          Title="Hides the Send Status drop-down control in the Timesheet ribbon">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ContextualTabs.TiedMode.Home.Sheet.SubmitMenu"/>
+      </CommandUIDefinitions>
+    </CommandUIExtension>
+  </CustomAction>
+
+</Elements>

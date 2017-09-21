@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            function SendLinkByMail(href) {
+                var subject= "Weekly Web Stats for 12/4 to 12/10";
+                var body = "Erik,\n\n These are the 1ADM Public Site Weekly Web Stats for 12/4 to 12/10.\n";
+                body += "I have attached the web stats to the email and they are available in this document library as well:\n\n";
+				body += "http://teamsites.adm.com/sites/oneadm/1ADM/SiteAnalyticsReports/Forms/AllItems.aspx \n\n";
+                body += "Thanks,\n Brittany";
+                var uri = "mailto:Erik.Mitchell@adm.com;tina.hill@adm.com?subject=";
+                uri += encodeURIComponent(subject);
+                uri += "&body=";
+                uri += encodeURIComponent(body);
+                window.open(uri);
+			}
+        </script>
+    </head>
+    <body>
+        <p><button href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B">Email Report</button></p>
+    </body>
+</html>

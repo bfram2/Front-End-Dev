@@ -1,0 +1,100 @@
+<style>
+#clockdiv {
+font-family: verdana;
+color: #000;
+display: none;
+font-weight: 100;
+text-align: center;
+font-size: 10pt;
+}
+#clockdiv > div {
+color: #000;
+display: inline-block;
+}
+.days {
+padding: 10px;
+font-size: 85pt;
+color: #FF794C;
+display: block;
+}
+#num {
+    color: #30305A;
+    font-size: 24pt;
+    display: inline-block;
+}
+.small {
+font-size: 12pt;
+display: inline;
+text-align: center;
+}
+.tiny {
+font-size: 10pt;
+}
+</style>
+<div id="clockdiv"><div>
+    <span class="days"></span>
+    <div class="small">Days until first<br> Month End Close</div><br>
+    <div class="tiny">[Countdown to first close]</div>
+  </div></div>
+
+<script>
+//count down timer for days, displays # of days left with 'days' under it
+//if today and the deadline is equal it will be '-1', so set as: deadline + 1 day
+//this will continue after the deadline with negative days
+
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+  };
+}
+function initializeClock(id, endtime) {
+  var star = document.getElementById("clockdiv").style.display = 'inline-block';
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+    daysSpan.innerHTML = t.days;
+    
+   if(t.days == 1) {
+    document.getElementById('rep').innerHTML = 'Day till Wave ';
+    }
+    if(t.days == 0) {
+    document.getElementById('rep').innerHTML = 'Days till Wave ';
+    }
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+//scheduled times with start and end dates
+var schedule = [
+    ['March 3 2016', 'April 2 2016'],
+    ['April 3 2016', 'May 2 2016'],
+    ['May 3 2016', 'June 2 2016'],
+    ['June 3 2016', 'July 2 2016'],
+    ['July 3 2016', 'August 2 2016'],
+    ['August 3 2016', 'September 2 2016']
+];
+// iterate over each element in the schedule
+for(var i=0; i<schedule.length; i++){
+  var startDate = schedule[i][0];
+  var endDate = schedule[i][1];
+
+  // put dates in milliseconds for easy comparisons
+  var startMs = Date.parse(startDate);
+  var endMs = Date.parse(endDate);
+  var currentMs = Date.parse(new Date());
+  // if current date is between start and end dates, display clock
+  if(endMs > currentMs && currentMs >= startMs ){
+      initializeClock('clockdiv', endDate);
+ }
+}
+
+</script>

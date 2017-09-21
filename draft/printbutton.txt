@@ -1,0 +1,25 @@
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+$(document).ready(function() { 
+  $('.printMe').click(function() { 
+  window.print(); 
+  return false; 
+  }); 
+
+});
+</script>
+
+<style> 
+.printMe{ 
+    color:#666666; 
+    font-weight:bold; 
+    cursor:pointer; 
+}
+.printMe:hover{ 
+color:#333333; 
+font-weight:bold; 
+cursor:pointer; 
+} 
+</style>
+<button class="printMe">Print</button>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+#clockdiv{
+    font-family: verdana;
+    color: #000;
+    display: none;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+#clockdiv > div {
+    padding: 10px;
+    color: #6464BD;
+    display: inline-block;
+}
+.days {
+    padding: 15px;
+    color: #30305A;
+    display: block;
+}
+#num {
+    color: #30305A;
+    font-size: 16px;
+    display: inline-block;
+}
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+    display: inline;
+}
+</style>
+<div id="clockdiv"><div>
+    <span class="days"></span>
+    <div id="rep" class="smalltext">Days till Wave </div><span id="num"></span>
+  </div></div>
+
+<script>
+//count down timer for days, displays # of days left with 'days' under it
+//if today and the deadline is equal it will be '-1', so set as: deadline + 1 day
+//this will continue after the deadline with negative days
+
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+  };
+}
+function initializeClock(id, endtime) {
+  var star = document.getElementById("clockdiv").style.display = 'inline-block';
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+
+//update time on the html page
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+    daysSpan.innerHTML = t.days;
+    
+   if(t.days < 2) {
+    document.getElementById('rep').innerHTML = 'Day till Wave ';
+	//if less than 2 change Days to Day
+    }
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+//scheduled times with start and end dates
+//counts down to zero, then to next wave
+var schedule = [
+    ['March 3 2016', 'April 2 2016'],
+    ['April 3 2016', 'May 2 2016'],
+    ['May 3 2016', 'June 2 2016'],
+    ['June 3 2016', 'July 2 2016'],
+    ['July 3 2016', 'August 2 2016'],
+    ['August 3 2016', 'September 2 2016']
+];
+// check over each element in the schedule
+for(var i=0; i<schedule.length; i++){
+  var startDate = schedule[i][0];
+  var endDate = schedule[i][1];
+
+  // put dates in milliseconds for easy comparisons
+  var startMs = Date.parse(startDate);
+  var endMs = Date.parse(endDate);
+  var currentMs = Date.parse(new Date());
+  // if current date is between start and end dates, display days left
+  if(endMs > currentMs && currentMs >= startMs ){
+    initializeClock('clockdiv', endDate);
+
+  // wave timeline dates
+  var wone = 'April 2 2016';     //Wave 1 - April 1
+  var wtwo = 'May 2 2016';       //Wave 2 - May 1
+  var wthree = 'June 2 2016';    //Wave 3 - June
+  var wfour = 'July 2 2016';     //Wave 4 - July
+  var wfive = 'August 2 2016';   //Wave 5 - August
+  var wsix = 'September 2 2016'; //Wave 6 - September
+
+ //change the Wave number based on endDate = wave timeline
+  if (endDate == wone) {
+    document.getElementById('num').innerHTML = 1;
+	//break;
+	//remove comments on break to stop for loop for error checking
+  }
+  else if (endDate == wtwo) {
+    document.getElementById('num').innerHTML = 2;
+	//break;
+  }
+  else if (endDate == wthree) {
+    document.getElementById('num').innerHTML = 3;
+    //break;
+  }
+  else if (endDate == wfour) {
+    document.getElementById('num').innerHTML = 4;
+   // break;
+  }
+  else if (endDate == wfive) {
+    document.getElementById('num').innerHTML = 5;
+    //break;
+  }
+  else if (endDate == wsix) {
+    document.getElementById('num').innerHTML = 6;
+    //break;
+  }
+  else {
+   document.getElementById('num').innerHTML = '';
+   document.getElementById('rep').innerHTML = 'Day(s) till next Wave ';
+  //break;
+  } 
+ }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .fonts {
+            font-family:Verdana;
+            font-size:11px;
+        }
+        .row {
+            vertical-align:middle;
+            margin-bottom:5px;
+        }
+        .button {
+            display:inline-block;
+            font-family:Verdana;
+            height:21px;
+            padding:2px;
+            font-size:11px;
+            border:1px solid gray;
+            width:120px;
+            cursor:hand;
+            text-align:center;
+        }
+        .formlabel {
+			text-align: right;
+			padding-right: 10px;
+            display:inline-block;
+            width:130px;
+        }
+        .heading{
+            font-weight:bold;
+            font-size:12px;
+            margin-bottom:10px;
+			padding: 5px 0px 0px 5px;
+        }
+
+    </style>
+    <script language="text/javascript" type="text/javascript">
+        function Submitfone() {
+            var lname = document.getElementById("filterone");
+            if (lname.value != "") {
+                var url1 = "http://teamsites.adm.com/sites/oneadm/Lists/Resource%20Permissions/AllItems.aspx?View={0ED21FAB-07EF-4FC5-B6FF-82EA29D0FBA0}&FilterField1=LinkTitle&FilterValue1=";
+                url1 += lname.value;
+                window.location.replace(url1);
+            } else {
+                alert("Please enter a valid Last Name.");
+            }
+        }
+
+        function SubmitLname() {
+            var fname = document.getElementById("filtertwo");            
+            if (fname.value != "") {
+                var url2 = "http://teamsites.adm.com/sites/oneadm/Lists/Resource%20Permissions/AllItems.aspx?View={0ED21FAB-07EF-4FC5-B6FF-82EA29D0FBA0}&FilterField1=First%5Fx0020%5FName&FilterValue1=";
+                url2 += fname.value;
+                window.location.replace(url2);
+            } else {
+                alert("Please enter a valid First Name.");
+            }
+        }
+		function clearall () {
+			var url3 = "http://teamsites.adm.com/sites/oneadm/Lists/Resource%20Permissions/AllItems.aspx?View={0ED21FAB-07EF-4FC5-B6FF-82EA29D0FBA0}&FilterClear=1";
+			window.location.replace(url3);
+        }
+		
+
+    </script>
+</head>
+<body class="fonts">
+    <div class="heading">Search Options</div>
+    <table><tbody><tr><td>
+    <span class="formlabel">Last Name:</span>
+    <input type="text" name="filterone" id="filterone" value="" />  
+    <input type="button" class="button" onclick="javascript:Submitfone();" id="submitalias" value="Submit" />
+    </td>
+	<td style="width: 80px;"></td>
+    <td>
+    <span class="formlabel">First Name:</span>
+    <input type="text" name="filtertwo" id="filtertwo" value="" />  
+    <input type="button" class="button" onclick="javascript:SubmitLname();" id="submitlname" value="Submit" />
+    </td>
+	<td style="width: 50px;"></td>
+	<td>
+	<input type="button" class="button" onclick="javascript:clearall();" id="submitlname" value="Clear All Filter(s)" />
+	</td>
+	</tr></tbody></table>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<a class"ms-cui-ctl-large ms-cui disabled'
+id="Ribbon.ContextualTabs.Timesheet.Home.Sheet.SubmitMenu-Large"
+role="button" aria-haspopup="true" aria-describedby="Ribbon.contextualTabs.Timesheet.Home.Sheet.SubmitMenu_Tooltip"
+onclick="return false;" href="javascript:;" shape="" _events="[object Object]" unselectable="on" mscui:controltype="FlyoutAnchor">
+<span class="ms-cui-stl-largeIconContainer" unselectable="on">
+	<span class=" ms-cui-img-32by32 ms-cui-img-cont-float ms-cui-imageDisabled" 	unselectable="on">
+<img class="" style="LEFT: -224px; TOP: -256px"
+src"/_layouts/1033/images/ps32x32.png" unselectable="on"></img></span></span>
+
+<span class="ms-cui-ctl-largelabel" unselectable="on">
+	Send
+	<br></br>
+	Status
+<span class=" ms-cui-img-5by3 ms-cui-img-cont-float ms-cui-imageDisabled" unselectable="on">
+<img class="" style="LEFT: -48px; TOP: -24px"
+src="/_layouts/1033/images/formatmap16x16.png"
+unselectable="on"></img>
+</span>
+</span>
+</a>

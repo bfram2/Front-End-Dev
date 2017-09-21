@@ -1,0 +1,28 @@
+<img src="inserturl.png" height="300" width="150"/> /*display image*/
+
+<div class="pictureContainer">
+<img src="images/smiley.png" height="300" width="150"/> /*put box on image*/
+</div>
+
+.pictureContainer {  /*display half image*/
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+
+.pictureContainer img { /*secondary image's size*/
+    position: relative;
+    top: 0px;
+}
+.pictureContainer img:hover {
+    top: -150px;
+}
+
+.pictureContainer img { /*smooth and animated*/
+    position: relative;
+    top: 0px;
+     
+    transition: top .2s ease-in-out;
+}
+.pictureContainer img:hover {
+    top: -150px;
+}
