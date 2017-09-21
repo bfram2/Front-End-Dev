@@ -1,0 +1,12 @@
+1. Filter SP List
+use the background names, found by filtering on the item and searching the url or in the xml it is after the ows_[field name]
+Multiple values (separate with ; delimiter): &FilterName=LinkTitle&FilterMultiValue= 
+Single value: &FilterField1=LinkTitle&FilterValue1=
+
+2. Views
+Surveys edit view: /_layouts/viewedit.aspx?List={}
+
+3. Default Forms
+New: /NewForm.aspx
+Display: /DispForm.aspx
+Edit: /EditForm.aspx
