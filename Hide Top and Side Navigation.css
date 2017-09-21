@@ -1,8 +1,0 @@
-<style type="text/css">
-#s4-ribbonrow, .ms-cui-topBar2, .s4-notdlg, .s4-pr s4-ribbonrowhidetitle, .s4-notdlg noindex, #ms-cui-ribbonTopBars, #s4-titlerow, #s4-pr s4-notdlg s4-titlerowhidetitle, #s4-leftpanel-content {display:none !important;}
-
-.s4-ca{margin-left:0px !important; margin-right:0px !important;}
-/* Nuclear option, hides the top and side navigation
-   The only way to show ribbon again is to add '?Contents=1' to the end of the URL and remove the whole web part.
-   Be sure to add this file to a document library as to not lose it every time the web part needs to be removed for editing. */
-</style>
