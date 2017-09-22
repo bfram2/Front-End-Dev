@@ -31,7 +31,8 @@ $(xData.responseXML).find("z\\:row,row").each(function() {
 //when pulling in list items use the ows attribute found by typing in the url in the AJAX call
 //z:row in the AJAX call url holds the SP list line items
 //s:AttributeType in the AJAX call lists the ows attribute names
-liHtml = "<li>" + $(this).attr("ows_LinkTitle") + "</li>";
+var title = $(this).attr("ows_LinkTitle");
+liHtml = "<li>" + title + "</li>";
 liHtml += "<ul>" + "<li>Role ID: " + $(this).attr("ows_ID") + "</li>" + "</ul>";
 $("#tasksUL").append(liHtml);
 });
