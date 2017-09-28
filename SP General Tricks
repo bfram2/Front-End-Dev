@@ -41,3 +41,7 @@ Remove web part: Add to end of page url '?Contents=1'
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script><script>$(document).ready(function(){$(".super").on("click", function OpenDialog(URL) {     var options = SP.UI.$create_DialogOptions();     options.url = '/sites/oneadm/1ADM/Lists/Super%20Users/AllItems.aspx';     options.width = 1024;     options.height = 800;     SP.UI.ModalDialog.showModalDialog(options);     });});// creates a modal popup for the link it is attached to, use class on anchor// be sure to make href="#" on anchor</script>
 
+6. InfoPath
+6a. Multiple Selection List Box, concatenate all selections with ', ' delimiter
+XPath expression: substring(eval(eval(field_in_group[. != ""], 'concat(", ", .)'), ".."), 3)     // Store this in fx for ID print out
+XPath expression: substring(eval(eval(field_in_data_conn[ID = field_in_group], 'concat(", ", .)'), ".."), 3) // Store in fx for display name print out
