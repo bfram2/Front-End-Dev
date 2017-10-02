@@ -45,3 +45,14 @@ Remove web part: Add to end of page url '?Contents=1'
 6a. Multiple Selection List Box, concatenate all selections with ', ' delimiter
 XPath expression: substring(eval(eval(field_in_group[. != ""], 'concat(", ", .)'), ".."), 3)     // Store this in fx for ID print out
 XPath expression: substring(eval(eval(field_in_data_conn[ID = field_in_group], 'concat(", ", .)'), ".."), 3) // Store in fx for display name print out
+6b. InfoPath Print Form Only
+-SP10 using Master pages IE8 & browser IE11 Fix: Add code to SiteAssets
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {   $('.printMe').click(function() {   window.print();   return false;   }); });
+</script>
+<style>
+.printMe{ color: #666666; font-weight: bold; cursor: pointer; }
+.printMe:hover{ color: #333333; font-weight: bold; cursor: pointer; }
+</style>
+<button class="printMe">Print</button>
